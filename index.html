@@ -885,8 +885,8 @@ function buildFluidPaths() {
     const opacity = 0.18 + (i % 8) * 0.05;
     const width   = 2 + (i % 4) * 1.2;
     const color   = i < 20 ? COLORS[0] : i < 40 ? COLORS[1] : COLORS[2];
-    const dur     = (15 + (i % 10)) + 's';
-    const del     = (i * 0.1) + 's';
+    const dur     = (5 + (i % 5)) + 's';
+    const del     = (i * 0.04) + 's';
 
     const path = document.createElementNS(NS, 'path');
     path.setAttribute('d', d);
