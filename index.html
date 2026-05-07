@@ -672,20 +672,17 @@ function openSpaceModal(s) {
   document.getElementById('modalType').textContent = s.type;
   document.getElementById('modalTitle').textContent = s.title;
   document.getElementById('modalDesc').textContent = s.desc;
-  document.getElementById('modalArea').textContent = s.area;
   const mapEl = document.querySelector('#spaceModal .modal-map');
   if (s.img) {
     mapEl.innerHTML = `<img src="${s.img}" alt="Plano ${s.title}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`;
-    mapEl.style.background = 'none';
-    mapEl.style.border = 'none';
-    mapEl.style.padding = '0';
-    mapEl.style.overflow = 'hidden';
+    mapEl.style.cssText = 'aspect-ratio:4/3;border-radius:10px;overflow:hidden;margin-bottom:1rem;';
   } else {
     mapEl.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg><span>Plano de ubicación</span><span style="font-size:.75rem;color:#9ca3af;">${s.area}</span>`;
     mapEl.style.cssText = '';
   }
   document.getElementById('modalTable').innerHTML = `
     <tr><td class="td-label">Nombre</td><td class="td-val">${s.title}</td></tr>
+    <tr><td class="td-label">Área</td><td class="td-val">${s.area}</td></tr>
     <tr><td class="td-label">Total Aforo</td><td class="td-val" style="font-size:1.1rem;font-weight:800;">${s.capacity}</td></tr>
     <tr><td class="td-label">Renta por Hora<br><span style="font-weight:400;font-size:.65rem;color:rgba(255,255,255,.7)">(${s.minHoras} horas mínimo)</span></td><td class="td-val">${s.porHora} <span style="font-size:.7rem;color:#6b7280">+ IVA</span></td></tr>
     <tr><td class="td-label">Renta por Día</td><td class="td-val">${s.porDia} <span style="font-size:.7rem;color:#6b7280">+ IVA</span></td></tr>`;
