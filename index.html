@@ -416,7 +416,7 @@
         </table>
       </div>
       <div style="margin-top:1.25rem;display:flex;justify-content:flex-end;">
-        <a href="#contacto" class="btn btn-navy">Solicitar cotización</a>
+        <a href="https://wa.me/573142617456?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20para%20un%20evento%20en%20CENEXPO." target="_blank" rel="noopener" class="btn btn-navy">Solicitar cotización</a>
       </div>
     </div>
   </div>
@@ -555,7 +555,7 @@
     </div>
     <div class="modal-footer-cta">
       <p>¿Listo para reservar este espacio?</p>
-      <a href="#contacto" id="modalCTALink">Solicitar cotización →</a>
+      <a href="https://wa.me/573142617456?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20para%20un%20evento%20en%20CENEXPO." target="_blank" rel="noopener" id="modalCTALink">Solicitar cotización →</a>
     </div>
   </div>
 </div>
@@ -688,6 +688,8 @@ function openSpaceModal(s) {
     <tr><td class="td-label">Renta por Día</td><td class="td-val">${s.porDia} <span style="font-size:.7rem;color:#6b7280">+ IVA</span></td></tr>`;
   const featGrid = document.getElementById('modalFeatures');
   featGrid.innerHTML = s.features.map(f => `<div class="feature-item"><div class="feature-dot"></div>${f}</div>`).join('');
+  const waMsg = encodeURIComponent(`Hola, me gustaría solicitar una cotización para el ${s.title} en CENEXPO.`);
+  document.getElementById('modalCTALink').href = `https://wa.me/573142617456?text=${waMsg}`;
   document.getElementById('spaceModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
