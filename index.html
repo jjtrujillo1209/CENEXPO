@@ -285,30 +285,106 @@
     .cal-modal-actions { margin-top:1.25rem; display:flex; gap:.75rem; }
 
     /* ── RESPONSIVE ── */
+
+    /* Tablet grande (≤1024px) */
     @media (max-width:1024px) {
       .spaces-grid { grid-template-columns:repeat(2,1fr); }
       .services-grid { grid-template-columns:repeat(2,1fr); }
       .footer-grid { grid-template-columns:repeat(2,1fr); }
       .stats-grid { grid-template-columns:repeat(2,1fr); }
+      .about-grid { gap:2rem; }
     }
+
+    /* Tablet / Mobile (≤768px) */
     @media (max-width:768px) {
-      .about-grid { grid-template-columns:1fr; }
-      .modal-body { grid-template-columns:1fr; }
-      .modal-col:first-child { border-right:none; border-bottom:1px solid var(--neutral-200); }
-      nav { display:none; }
-      nav.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#fff; padding:1.5rem; gap:1rem; border-top:1px solid var(--neutral-200); box-shadow:0 8px 20px rgba(13,27,62,.12); }
+      /* Header */
+      header { position:sticky; top:0; }
+      .logo-img { height:56px; }
       .menu-btn { display:flex; }
-      header { position:relative; }
-      .spaces-grid { grid-template-columns:1fr; }
-      .services-grid { grid-template-columns:1fr; }
-      .footer-grid { grid-template-columns:1fr; }
-      .stats-grid { grid-template-columns:repeat(2,1fr); }
-      .cal-header { flex-direction:column; align-items:flex-start; }
-    }
-    @media (max-width:480px) {
-      .hero-h1 { font-size:2.2rem; }
-      .stats-grid { grid-template-columns:1fr 1fr; }
+      nav { display:none; }
+      nav.open {
+        display:flex; flex-direction:column;
+        position:fixed; top:0; left:0; right:0; bottom:0;
+        background:#fff; padding:5rem 2rem 2rem;
+        gap:1.5rem; z-index:99;
+        overflow-y:auto;
+      }
+      nav.open a { font-size:1.3rem; font-weight:600; color:var(--navy); padding:.5rem 0; border-bottom:1px solid var(--neutral-100); }
+      nav.open .nav-cta { background:var(--blue); color:#fff !important; border-radius:8px; text-align:center; padding:.75rem; border-bottom:none; }
+
+      /* Sections */
+      .section { padding:3rem 1rem; }
+      .section-sub { font-size:1rem; margin-bottom:2rem; }
+
+      /* About */
+      .about-grid { grid-template-columns:1fr; gap:1.5rem; }
+      .about-visual { min-height:200px; padding:2rem; }
+
+      /* Stats */
+      .stats-grid { grid-template-columns:repeat(2,1fr); gap:.75rem; }
+      .stat-card { padding:1.25rem .75rem; }
+      .stat-num { font-size:1.8rem; }
+
+      /* Spaces */
+      .spaces-grid { grid-template-columns:1fr; gap:1rem; }
+      .space-card { padding:1.25rem; }
+
+      /* Tabla tarifas */
+      .table-wrap { border-radius:8px; }
+      table { font-size:.78rem; }
+      thead th, tbody td { padding:.65rem .75rem; }
+
+      /* Services */
+      .services-grid { grid-template-columns:1fr; gap:1rem; }
+
+      /* Calendar */
+      .cal-header { flex-direction:column; align-items:flex-start; gap:.75rem; }
+      .cal-month-title { font-size:1.1rem; min-width:auto; }
+      .cal-cell { min-height:60px; padding:.25rem .3rem; }
+      .cal-day-name { font-size:.6rem; padding:.3rem 0; }
+      .event-chip { font-size:.55rem; padding:1px 3px; }
+      .cal-legend { gap:.75rem; font-size:.72rem; }
+      .space-filter { gap:.35rem; }
+      .space-filter button { padding:.25rem .7rem; font-size:.72rem; }
+
+      /* Modal */
+      .modal-overlay { padding:.5rem; align-items:flex-end; }
+      .space-modal { max-height:95vh; border-radius:16px 16px 0 0; }
+      .modal-header { padding:1.25rem 1.25rem .75rem; }
+      .modal-title { font-size:1.5rem; }
+      .modal-desc { padding:1rem 1.25rem; font-size:.82rem; }
       .modal-body { grid-template-columns:1fr; }
+      .modal-col { padding:1.25rem; }
+      .modal-col:first-child { border-right:none; border-bottom:1px solid var(--neutral-200); }
+      .modal-footer-cta { padding:1rem 1.25rem; border-radius:0; }
+      .modal-footer-cta p { font-size:.8rem; }
+      .features-grid { grid-template-columns:1fr; gap:.35rem; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns:1fr; gap:1.5rem; }
+      .footer-bottom { flex-direction:column; text-align:center; gap:.5rem; }
+
+      /* CTA section */
+      #cta-section { padding:3rem 1rem; }
+      .cta-buttons { flex-direction:column; align-items:center; }
+      .cta-buttons .btn { width:100%; max-width:320px; }
+    }
+
+    /* Mobile pequeño (≤480px) */
+    @media (max-width:480px) {
+      .hero-h1 { font-size:2rem; line-height:1.1; }
+      .hero-p { font-size:.95rem; margin-bottom:1.75rem; }
+      .hero-cta { flex-direction:column; align-items:center; }
+      .hero-cta .btn { width:100%; max-width:280px; }
+      .stats-grid { grid-template-columns:1fr 1fr; }
+      .stat-num { font-size:1.6rem; }
+      .section-title { font-size:1.75rem; }
+      .cal-cell { min-height:48px; }
+      .cal-grid { gap:2px; }
+      .space-meta { flex-direction:column; gap:.4rem; }
+      .space-divider { display:none; }
+      table { font-size:.72rem; }
+      thead th, tbody td { padding:.5rem .6rem; }
     }
   </style>
 </head>
@@ -863,11 +939,22 @@ document.getElementById('spaceFilter').addEventListener('click', e => {
 });
 
 // ── MOBILE NAV ──────────────────────────────────────
-document.getElementById('menuBtn').addEventListener('click', () => {
-  document.getElementById('mainNav').classList.toggle('open');
+const menuBtn = document.getElementById('menuBtn');
+const mainNav = document.getElementById('mainNav');
+menuBtn.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  menuBtn.style.zIndex = isOpen ? '100' : '';
+  menuBtn.style.position = isOpen ? 'fixed' : '';
+  menuBtn.style.top = isOpen ? '1.1rem' : '';
+  menuBtn.style.right = isOpen ? '1.5rem' : '';
 });
 document.querySelectorAll('#mainNav a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('mainNav').classList.remove('open'));
+  a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuBtn.style.cssText = '';
+  });
 });
 
 // ── SMOOTH SCROLL ───────────────────────────────────
