@@ -64,6 +64,42 @@ h1 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
 }
+.variant {
+  margin-bottom: 54px;
+}
+.variant-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 18px;
+}
+.variant-head h2 {
+  margin: 0;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 42px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.variant-head p {
+  max-width: 440px;
+  margin: 0;
+  color: rgba(255,255,255,0.54);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.tagline {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--gold);
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
 .flyer {
   aspect-ratio: 4 / 5;
   position: relative;
@@ -290,9 +326,233 @@ h1 {
   text-align: right;
   text-transform: uppercase;
 }
+.fiesta {
+  background: #efbf11;
+}
+.fiesta::before {
+  background:
+    linear-gradient(180deg, rgba(255,224,99,0.06), rgba(7,30,104,0.06) 48%, rgba(72,0,23,0.36)),
+    url("assets-mundial/fondo-tricolor-balon-colombia.png") center / cover;
+  filter: saturate(1.18) contrast(1.05);
+}
+.fiesta::after {
+  background:
+    radial-gradient(circle at 50% 11%, rgba(255,255,255,0.36), transparent 23%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), transparent 28%, rgba(0,0,0,0.18) 100%);
+  mix-blend-mode: screen;
+}
+.fiesta .tricolor {
+  height: 0;
+}
+.fiesta .logo {
+  top: auto;
+  bottom: 1.8%;
+  left: 50%;
+  width: 22%;
+  max-width: 104px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+}
+.fiesta .number {
+  top: 3.8%;
+  right: 5.8%;
+  color: rgba(13,27,75,0.52);
+}
+.fiesta .number strong { color: var(--navy); }
+.fiesta .kicker {
+  top: 5%;
+  left: 6%;
+  color: var(--navy);
+  text-shadow: 0 1px rgba(255,255,255,0.35);
+}
+.fiesta .chevrons,
+.fiesta .ring {
+  display: none;
+}
+.fiesta-headline {
+  position: absolute;
+  z-index: 5;
+  top: 12.5%;
+  right: 6%;
+  left: 6%;
+  color: var(--navy);
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(38px, 3.65vw, 62px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.82;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px rgba(255,255,255,0.28);
+}
+.fiesta-headline em {
+  display: block;
+  margin-top: 4px;
+  color: var(--red);
+  font-family: 'Barlow', Arial, sans-serif;
+  font-size: clamp(24px, 2.2vw, 38px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: none;
+  transform: rotate(-4deg);
+}
+.fixture {
+  position: absolute;
+  z-index: 5;
+  top: 40%;
+  right: 7%;
+  left: 7%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  text-align: center;
+  text-transform: uppercase;
+}
+.fixture-team {
+  min-width: 0;
+  color: #fff;
+  font-size: clamp(15px, 1.25vw, 21px);
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+}
+.fixture-team strong {
+  width: clamp(62px, 6.2vw, 94px);
+  aspect-ratio: 1;
+  margin: 0 auto 9px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.78);
+  border-radius: 50%;
+  background:
+    linear-gradient(180deg, var(--gold) 0 50%, #1746b5 50% 75%, var(--red) 75%),
+    #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: clamp(11px, 1vw, 14px);
+  letter-spacing: 1px;
+}
+.fixture-team.rival-team strong {
+  background: rgba(255,255,255,0.9);
+  color: var(--navy);
+  border-color: rgba(13,27,75,0.16);
+}
+.fixture-vs {
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(38px, 3.5vw, 58px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+}
+.fiesta-live {
+  position: absolute;
+  z-index: 5;
+  right: 7%;
+  bottom: 26.5%;
+  left: 7%;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 14px rgba(0,0,0,0.35);
+}
+.fiesta-live b {
+  display: block;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(31px, 2.9vw, 48px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.fiesta-live span {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(15px, 1.25vw, 21px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.05;
+}
+.broadcast {
+  position: absolute;
+  z-index: 5;
+  right: 7%;
+  bottom: 15%;
+  left: 7%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 9px;
+}
+.time-chip,
+.live-chip {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+  font-weight: 900;
+}
+.time-chip {
+  gap: 8px;
+  background: rgba(255,255,255,0.94);
+  color: var(--navy);
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(18px, 1.8vw, 30px);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.time-chip::before {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  background:
+    linear-gradient(var(--red), var(--red)) 50% 50% / 2px 10px no-repeat,
+    linear-gradient(var(--red), var(--red)) 50% 50% / 8px 2px no-repeat;
+  content: '';
+}
+.live-chip {
+  gap: 8px;
+  min-width: 104px;
+  padding: 0 15px;
+  background: linear-gradient(90deg, #fff 0 38%, #ff2252 38%);
+  color: #fff;
+  font-size: clamp(16px, 1.55vw, 25px);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.live-chip::before {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  content: '';
+}
+.fiesta-date {
+  position: absolute;
+  z-index: 5;
+  right: 6%;
+  bottom: 8.5%;
+  left: 6%;
+  color: #fff;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(14px, 1.25vw, 20px);
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-align: center;
+  text-transform: uppercase;
+}
 @media (max-width: 980px) {
   .board { padding: 28px 18px 36px; }
   .intro { align-items: start; flex-direction: column; }
+  .variant-head { align-items: start; flex-direction: column; }
   .grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
 }
 </style>
@@ -306,7 +566,15 @@ h1 {
       </div>
       <p class="note">Serie de anuncios por partido para feed vertical. Fondo futbolero propio con titulares densos, barras de informacion y energia tricolor.</p>
     </div>
-    <section class="grid" aria-label="Flyers de partidos de Colombia">
+    <section class="variant" aria-label="Variante fotografica de flyers de partidos de Colombia">
+      <div class="variant-head">
+        <div>
+          <span class="tagline">Variante A</span>
+          <h2>Fondo futbolero nocturno</h2>
+        </div>
+        <p>Serie inicial con contraste alto, boot close-up y barras compactas para feed vertical.</p>
+      </div>
+      <div class="grid">
       <article class="flyer" aria-label="Colombia contra Uzbekistan">
         <div class="tricolor"></div>
         <div class="chevrons"></div>
@@ -379,6 +647,72 @@ h1 {
           <div class="cta">Guarda<br>tu lugar</div>
         </div>
       </article>
+      </div>
+    </section>
+    <section class="variant" aria-label="Variante tricolor de flyers de partidos de Colombia">
+      <div class="variant-head">
+        <div>
+          <span class="tagline">Variante B</span>
+          <h2>Balon tricolor festivo</h2>
+        </div>
+        <p>Exploracion mas brillante y popular, con balon gigante, fixture central y llamado de transmision.</p>
+      </div>
+      <div class="grid">
+        <article class="flyer fiesta" aria-label="Variante festiva Colombia contra Uzbekistan">
+          <div class="tricolor"></div>
+          <img class="logo" src="logo_cenexpo_final.jpeg" alt="CENEXPO">
+          <div class="number">Partido<strong>01</strong></div>
+          <div class="kicker">Mundial 2026 · Grupo K</div>
+          <div class="fiesta-headline">Hoy juega<em>Colombia</em></div>
+          <div class="fixture">
+            <div class="fixture-team rival-team"><strong>UZB</strong>Uzbekistan</div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team"><strong>COL</strong>Colombia</div>
+          </div>
+          <div class="fiesta-live"><b>Visitanos</b><span>y vive el futbol con nosotros</span></div>
+          <div class="broadcast">
+            <div class="time-chip">9:00 PM</div>
+            <div class="live-chip">Live</div>
+          </div>
+          <div class="fiesta-date">Miercoles 17 Jun · La Tribuna del Eje</div>
+        </article>
+        <article class="flyer fiesta" aria-label="Variante festiva Colombia contra RD Congo">
+          <div class="tricolor"></div>
+          <img class="logo" src="logo_cenexpo_final.jpeg" alt="CENEXPO">
+          <div class="number">Partido<strong>02</strong></div>
+          <div class="kicker">Mundial 2026 · Grupo K</div>
+          <div class="fiesta-headline">Hoy juega<em>Colombia</em></div>
+          <div class="fixture">
+            <div class="fixture-team rival-team"><strong>COD</strong>RD Congo</div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team"><strong>COL</strong>Colombia</div>
+          </div>
+          <div class="fiesta-live"><b>Visitanos</b><span>y vive el futbol con nosotros</span></div>
+          <div class="broadcast">
+            <div class="time-chip">9:00 PM</div>
+            <div class="live-chip">Live</div>
+          </div>
+          <div class="fiesta-date">Martes 23 Jun · La Tribuna del Eje</div>
+        </article>
+        <article class="flyer fiesta" aria-label="Variante festiva Colombia contra Portugal">
+          <div class="tricolor"></div>
+          <img class="logo" src="logo_cenexpo_final.jpeg" alt="CENEXPO">
+          <div class="number">Partido<strong>03</strong></div>
+          <div class="kicker">Mundial 2026 · Grupo K</div>
+          <div class="fiesta-headline">Hoy juega<em>Colombia</em></div>
+          <div class="fixture">
+            <div class="fixture-team rival-team"><strong>POR</strong>Portugal</div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team"><strong>COL</strong>Colombia</div>
+          </div>
+          <div class="fiesta-live"><b>Visitanos</b><span>y vive el futbol con nosotros</span></div>
+          <div class="broadcast">
+            <div class="time-chip">6:30 PM</div>
+            <div class="live-chip">Live</div>
+          </div>
+          <div class="fiesta-date">Sabado 27 Jun · La Tribuna del Eje</div>
+        </article>
+      </div>
     </section>
   </main>
 </body>
