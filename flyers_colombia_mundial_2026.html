@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CENEXPO - Flyers Colombia Mundial 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+:root {
+  --navy: #0D1B4B;
+  --gold: #FDD835;
+  --gold2: #F9A825;
+  --red: #C62828;
+  --silver: #C0C8D4;
+  --white: #FFFFFF;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #06070d;
+  color: var(--white);
+  font-family: 'Barlow', Arial, sans-serif;
+}
+.board {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 40px 36px 52px;
+}
+.intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.intro small {
+  display: block;
+  color: var(--gold);
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 6px 0 0;
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: clamp(38px, 5vw, 72px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.note {
+  max-width: 360px;
+  margin: 0;
+  color: rgba(255,255,255,0.58);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.flyer {
+  aspect-ratio: 4 / 5;
+  position: relative;
+  overflow: hidden;
+  background: #06102e;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+  color: var(--white);
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+}
+.flyer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5,12,38,0.14), rgba(5,12,38,0.55) 36%, rgba(5,12,38,0.98)),
+    linear-gradient(90deg, rgba(13,27,75,0.25), rgba(13,27,75,0)),
+    url("assets-mundial/fondo-futbol-colombia-matchday.png") center / cover;
+  filter: saturate(1.08) contrast(1.08);
+}
+.flyer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 76% 13%, rgba(253,216,53,0.2), transparent 20%),
+    radial-gradient(circle at 18% 84%, rgba(198,40,40,0.2), transparent 26%),
+    linear-gradient(115deg, rgba(255,255,255,0.08), transparent 22%);
+  mix-blend-mode: screen;
+}
+.tricolor {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 4;
+  height: 7px;
+  background: linear-gradient(to right, var(--gold) 52%, #173a9f 52% 76%, var(--red) 76%);
+}
+.logo {
+  position: absolute;
+  z-index: 5;
+  top: 5%;
+  left: 6%;
+  width: 24%;
+  max-width: 112px;
+}
+.number {
+  position: absolute;
+  z-index: 5;
+  top: 4.4%;
+  right: 5.4%;
+  color: rgba(255,255,255,0.26);
+  font-size: clamp(10px, 0.9vw, 13px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 0.95;
+  text-align: right;
+  text-transform: uppercase;
+}
+.number strong {
+  display: block;
+  color: #fff;
+  font-size: clamp(34px, 3.2vw, 54px);
+  letter-spacing: 0;
+}
+.kicker {
+  position: absolute;
+  z-index: 5;
+  top: 17.5%;
+  left: 6%;
+  color: var(--gold);
+  font-size: clamp(10px, 0.95vw, 14px);
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.chevrons {
+  position: absolute;
+  z-index: 4;
+  top: 11%;
+  right: -1.5%;
+  width: 22%;
+  height: 35%;
+  background:
+    linear-gradient(135deg, transparent 0 38%, #fff 39% 49%, transparent 50%) 0 0 / 100% 33%,
+    linear-gradient(135deg, transparent 0 38%, #fff 39% 49%, transparent 50%) 0 34% / 100% 33%,
+    linear-gradient(135deg, transparent 0 38%, #fff 39% 49%, transparent 50%) 0 68% / 100% 33%;
+}
+.ring {
+  position: absolute;
+  z-index: 4;
+  top: 26%;
+  left: 6%;
+  width: 15%;
+  aspect-ratio: 1;
+  border: 2px solid rgba(255,255,255,0.74);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 10px rgba(255,255,255,0.08);
+}
+.body {
+  position: absolute;
+  z-index: 5;
+  right: 6%;
+  bottom: 23.5%;
+  left: 6%;
+}
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 6px 13px;
+  border: 1px solid rgba(255,255,255,0.34);
+  border-radius: 999px;
+  background: rgba(3,11,36,0.48);
+  backdrop-filter: blur(8px);
+  font-size: clamp(10px, 0.95vw, 13px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.live::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 14px var(--red);
+  content: '';
+}
+.title {
+  font-size: clamp(32px, 2.8vw, 46px);
+  font-weight: 800;
+  line-height: 0.92;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.72);
+  text-transform: uppercase;
+}
+.title strong {
+  display: block;
+  color: var(--gold);
+  font-size: clamp(64px, 5.2vw, 88px);
+  font-weight: 900;
+}
+.rival {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+.rival span {
+  padding-bottom: 8px;
+  color: var(--silver);
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+.rival strong {
+  color: #fff;
+  font-size: clamp(38px, 3.4vw, 58px);
+  font-weight: 900;
+  line-height: 0.88;
+  text-wrap: balance;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.72);
+}
+.info {
+  position: absolute;
+  z-index: 5;
+  right: 5%;
+  bottom: 12%;
+  left: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.pill {
+  border-radius: 999px;
+  background: rgba(255,255,255,0.94);
+  color: var(--navy);
+  padding: 10px 12px;
+  font-size: clamp(10px, 0.9vw, 13px);
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.12;
+  text-align: center;
+  text-transform: uppercase;
+}
+.pill strong {
+  display: block;
+  font-size: clamp(19px, 1.8vw, 30px);
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+.pill.gold { background: linear-gradient(90deg, var(--gold), #fff15c); }
+.bottom {
+  position: absolute;
+  z-index: 5;
+  inset: auto 0 0;
+  min-height: 10%;
+  padding: 11px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(90deg, rgba(13,27,75,0.98), rgba(19,41,113,0.96));
+  border-top: 1px solid rgba(255,255,255,0.16);
+}
+.place {
+  font-size: clamp(13px, 1.2vw, 19px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.detail {
+  color: rgba(255,255,255,0.72);
+  font-family: 'Barlow', Arial, sans-serif;
+  font-size: clamp(9px, 0.8vw, 12px);
+  font-weight: 700;
+}
+.cta {
+  color: var(--gold);
+  font-size: clamp(11px, 1vw, 15px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 0.95;
+  text-align: right;
+  text-transform: uppercase;
+}
+@media (max-width: 980px) {
+  .board { padding: 28px 18px 36px; }
+  .intro { align-items: start; flex-direction: column; }
+  .grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+  <main class="board">
+    <div class="intro">
+      <div>
+        <small>CENEXPO · La Tribuna del Eje</small>
+        <h1>Flyers Colombia<br>Mundial 2026</h1>
+      </div>
+      <p class="note">Serie de anuncios por partido para feed vertical. Fondo futbolero propio con titulares densos, barras de informacion y energia tricolor.</p>
+    </div>
+    <section class="grid" aria-label="Flyers de partidos de Colombia">
+      <article class="flyer" aria-label="Colombia contra Uzbekistan">
+        <div class="tricolor"></div>
+        <div class="chevrons"></div>
+        <div class="ring"></div>
+        <img class="logo" src="logo_cenexpo_final.jpeg" alt="CENEXPO">
+        <div class="number">Partido<strong>01</strong></div>
+        <div class="kicker">Mundial 2026 · Grupo K</div>
+        <div class="body">
+          <div class="live">En pantalla gigante</div>
+          <div class="title">Vive a<strong>Colombia</strong></div>
+          <div class="rival"><span>VS</span><strong>Uzbekistan</strong></div>
+        </div>
+        <div class="info">
+          <div class="pill gold">Miercoles<strong>17 Jun</strong></div>
+          <div class="pill">Hora Colombia<strong>9:00 PM</strong></div>
+        </div>
+        <div class="bottom">
+          <div>
+            <div class="place">La Tribuna del Eje</div>
+            <div class="detail">CENEXPO · Armenia · Aforo 800 personas</div>
+          </div>
+          <div class="cta">Guarda<br>tu lugar</div>
+        </div>
+      </article>
+      <article class="flyer" aria-label="Colombia contra Republica Democratica del Congo">
+        <div class="tricolor"></div>
+        <div class="chevrons"></div>
+        <div class="ring"></div>
+        <img class="logo" src="logo_cenexpo_final.jpeg" alt="CENEXPO">
+        <div class="number">Partido<strong>02</strong></div>
+        <div class="kicker">Mundial 2026 · Grupo K</div>
+        <div class="body">
+          <div class="live">En pantalla gigante</div>
+          <div class="title">Vive a<strong>Colombia</strong></div>
+          <div class="rival"><span>VS</span><strong>RD Congo</strong></div>
+        </div>
+        <div class="info">
+          <div class="pill gold">Martes<strong>23 Jun</strong></div>
+          <div class="pill">Hora Colombia<strong>9:00 PM</strong></div>
+        </div>
+        <div class="bottom">
+          <div>
+            <div class="place">La Tribuna del Eje</div>
+            <div class="detail">CENEXPO · Armenia · Aforo 800 personas</div>
+          </div>
+          <div class="cta">Guarda<br>tu lugar</div>
+        </div>
+      </article>
+      <article class="flyer" aria-label="Colombia contra Portugal">
+        <div class="tricolor"></div>
+        <div class="chevrons"></div>
+        <div class="ring"></div>
+        <img class="logo" src="logo_cenexpo_final.jpeg" alt="CENEXPO">
+        <div class="number">Partido<strong>03</strong></div>
+        <div class="kicker">Mundial 2026 · Grupo K</div>
+        <div class="body">
+          <div class="live">En pantalla gigante</div>
+          <div class="title">Vive a<strong>Colombia</strong></div>
+          <div class="rival"><span>VS</span><strong>Portugal</strong></div>
+        </div>
+        <div class="info">
+          <div class="pill gold">Sabado<strong>27 Jun</strong></div>
+          <div class="pill">Hora Colombia<strong>6:30 PM</strong></div>
+        </div>
+        <div class="bottom">
+          <div>
+            <div class="place">La Tribuna del Eje</div>
+            <div class="detail">CENEXPO · Armenia · Aforo 800 personas</div>
+          </div>
+          <div class="cta">Guarda<br>tu lugar</div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
