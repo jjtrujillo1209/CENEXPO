@@ -236,6 +236,12 @@
       text-align: center;
     }
 
+    .copy-tile .tile-inner,
+    .graphic-tile .tile-inner,
+    .cta-tile .tile-inner {
+      width: min(100%, 360px);
+    }
+
     .logo-card {
       width: min(100%, 300px);
       padding: 18px;
@@ -283,7 +289,7 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1px;
       width: min(100%, 340px);
       overflow: hidden;
@@ -312,6 +318,29 @@
       color: var(--silver-bright);
       font-size: clamp(1.4rem, 2.2vw, 2.25rem);
       line-height: 0.9;
+    }
+
+    .phone-stat {
+      grid-column: 1 / -1;
+      min-height: 78px;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding-inline: 16px;
+      text-align: center;
+      letter-spacing: 0.12em;
+    }
+
+    .phone-stat strong {
+      font-size: clamp(0.9rem, 1.25vw, 1.2rem);
+      letter-spacing: 0.18em;
+    }
+
+    .phone-stat span {
+      display: block;
+      font-size: clamp(0.92rem, 1.22vw, 1.2rem);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      white-space: nowrap;
     }
 
     .button {
@@ -457,6 +486,21 @@
         font-size: 0.86rem;
       }
 
+      .mosaic .phone-stat {
+        min-height: 34px;
+        grid-template-columns: 1fr;
+        gap: 2px;
+        padding-inline: 4px;
+      }
+
+      .mosaic .phone-stat strong {
+        font-size: 0.42rem;
+      }
+
+      .mosaic .phone-stat span {
+        font-size: 0.55rem;
+      }
+
       .mosaic .button {
         min-width: 100%;
         min-height: 30px;
@@ -525,7 +569,7 @@
             <div class="stats">
               <div class="stat"><strong>10K</strong> personas</div>
               <div class="stat"><strong>6</strong> zonas</div>
-              <div class="stat"><strong>+57</strong>314 261 7456</div>
+              <div class="stat phone-stat"><strong>WhatsApp</strong><span>+57 314 261 7456</span></div>
             </div>
           </div>
           <span class="tile-number">01</span>
@@ -550,7 +594,7 @@
         <article class="tile graphic-tile">
           <div class="tile-inner">
             <p class="kicker">Outdoor</p>
-            <h2 class="title small">Plazoleta de Banderas</h2>
+            <h2 class="title small">Plazoleta<br>de Banderas</h2>
             <p class="copy">Activaciones, food trucks y eventos al aire libre.</p>
           </div>
           <span class="tile-number">04</span>
@@ -569,7 +613,7 @@
         <article class="tile graphic-tile">
           <div class="tile-inner">
             <p class="kicker">Ferias y exposiciones</p>
-            <h2 class="title small">Pabellon San Carlos</h2>
+            <h2 class="title small">Pabellon<br>San Carlos</h2>
             <p class="copy">Formato amplio para marcas, stands y muestras comerciales.</p>
           </div>
           <span class="tile-number">06</span>
@@ -586,7 +630,7 @@
         <article class="tile graphic-tile">
           <div class="tile-inner">
             <p class="kicker">Centro de eventos</p>
-            <h2 class="title small">Todo en un solo lugar.</h2>
+            <h2 class="title small">Todo en un<br>solo lugar.</h2>
             <p class="copy">Social, empresarial y masivo en Armenia, Quindio.</p>
           </div>
           <span class="tile-number">08</span>
@@ -609,7 +653,7 @@
       <div class="tiles-list">
         <article class="tile-card">
           <div class="tile-label"><span>Tile 01</span><span>Arriba izquierda</span></div>
-          <div class="tile stats-tile"><div class="tile-inner"><p class="kicker">Espacios para cada ocasion</p><div class="stats"><div class="stat"><strong>10K</strong> personas</div><div class="stat"><strong>6</strong> zonas</div><div class="stat"><strong>+57</strong>314 261 7456</div></div></div></div>
+          <div class="tile stats-tile"><div class="tile-inner"><p class="kicker">Espacios para cada ocasion</p><div class="stats"><div class="stat"><strong>10K</strong> personas</div><div class="stat"><strong>6</strong> zonas</div><div class="stat phone-stat"><strong>WhatsApp</strong><span>+57 314 261 7456</span></div></div></div></div>
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 02</span><span>Arriba centro</span></div>
@@ -621,7 +665,7 @@
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 04</span><span>Centro izquierda</span></div>
-          <div class="tile graphic-tile"><div class="tile-inner"><p class="kicker">Outdoor</p><h2 class="title small">Plazoleta de Banderas</h2><p class="copy">Activaciones, food trucks y eventos al aire libre.</p></div></div>
+          <div class="tile graphic-tile"><div class="tile-inner"><p class="kicker">Outdoor</p><h2 class="title small">Plazoleta<br>de Banderas</h2><p class="copy">Activaciones, food trucks y eventos al aire libre.</p></div></div>
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 05</span><span>Centro</span></div>
@@ -629,7 +673,7 @@
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 06</span><span>Centro derecha</span></div>
-          <div class="tile graphic-tile"><div class="tile-inner"><p class="kicker">Ferias y exposiciones</p><h2 class="title small">Pabellon San Carlos</h2><p class="copy">Formato amplio para marcas, stands y muestras comerciales.</p></div></div>
+          <div class="tile graphic-tile"><div class="tile-inner"><p class="kicker">Ferias y exposiciones</p><h2 class="title small">Pabellon<br>San Carlos</h2><p class="copy">Formato amplio para marcas, stands y muestras comerciales.</p></div></div>
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 07</span><span>Abajo izquierda</span></div>
@@ -637,7 +681,7 @@
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 08</span><span>Abajo centro</span></div>
-          <div class="tile graphic-tile"><div class="tile-inner"><p class="kicker">Centro de eventos</p><h2 class="title small">Todo en un solo lugar.</h2><p class="copy">Social, empresarial y masivo en Armenia, Quindio.</p></div></div>
+          <div class="tile graphic-tile"><div class="tile-inner"><p class="kicker">Centro de eventos</p><h2 class="title small">Todo en un<br>solo lugar.</h2><p class="copy">Social, empresarial y masivo en Armenia, Quindio.</p></div></div>
         </article>
         <article class="tile-card">
           <div class="tile-label"><span>Tile 09</span><span>Abajo derecha</span></div>
