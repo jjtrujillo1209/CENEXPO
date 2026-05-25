@@ -155,10 +155,11 @@
       grid-template-columns: repeat(3, 1fr);
       border: 1px solid rgba(217, 226, 231, 0.22);
       background:
-        radial-gradient(circle at 16% 76%, rgba(174, 73, 86, 0.18), transparent 25%),
-        radial-gradient(circle at 74% 34%, rgba(121, 199, 119, 0.34), transparent 36%),
-        radial-gradient(circle at 48% 68%, rgba(54, 139, 91, 0.24), transparent 42%),
-        linear-gradient(180deg, rgba(4, 21, 28, 0.1), rgba(4, 16, 45, 0.34)),
+        radial-gradient(circle at 15% 77%, rgba(187, 62, 74, 0.22), transparent 25%),
+        radial-gradient(circle at 74% 34%, rgba(142, 222, 123, 0.46), transparent 36%),
+        radial-gradient(circle at 48% 68%, rgba(67, 166, 92, 0.34), transparent 42%),
+        radial-gradient(circle at 34% 28%, rgba(226, 236, 206, 0.16), transparent 32%),
+        linear-gradient(180deg, rgba(4, 21, 28, 0.06), rgba(4, 16, 45, 0.27)),
         url("assets-quindio/cafetal-quindio-realista.png") center / cover no-repeat;
       box-shadow: 0 40px 90px rgba(0, 0, 0, 0.38);
     }
@@ -225,7 +226,7 @@
     .mosaic > .stats-tile,
     .mosaic > .cta-tile {
       background:
-        linear-gradient(145deg, rgba(26, 100, 65, 0.06), rgba(4, 16, 45, 0.14));
+        linear-gradient(145deg, rgba(31, 118, 67, 0.035), rgba(4, 16, 45, 0.11));
     }
 
     .mosaic > .scenic-tile::before,
@@ -240,18 +241,73 @@
     .mosaic > .brand-tile {
       border-color: transparent;
       background:
-        radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.42), rgba(247, 250, 252, 0.14) 34%, transparent 58%),
-        linear-gradient(180deg, rgba(121, 199, 119, 0.14), rgba(4, 16, 45, 0.03));
-      backdrop-filter: blur(2px) saturate(1.42) contrast(1.08);
+        radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.62), rgba(247, 250, 252, 0.25) 35%, transparent 62%),
+        linear-gradient(180deg, rgba(142, 222, 123, 0.18), rgba(4, 16, 45, 0.02));
+      backdrop-filter: blur(1.5px) saturate(1.58) contrast(1.1);
     }
 
     .mosaic > .brand-tile::after {
       background:
         radial-gradient(ellipse at center,
-          rgba(255, 255, 255, 0.48) 0%,
-          rgba(255, 255, 255, 0.28) 30%,
-          rgba(33, 100, 90, 0.05) 62%,
-          rgba(4, 16, 45, 0.12) 100%);
+          rgba(255, 255, 255, 0.6) 0%,
+          rgba(255, 255, 255, 0.36) 30%,
+          rgba(69, 150, 92, 0.04) 62%,
+          rgba(4, 16, 45, 0.08) 100%);
+    }
+
+    .corner-mark {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      gap: 8px;
+      color: rgba(242, 245, 247, 0.78);
+      font-family: var(--heading);
+      font-size: clamp(0.58rem, 0.9vw, 0.74rem);
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      line-height: 1;
+      text-transform: uppercase;
+      pointer-events: none;
+      text-shadow: 0 4px 16px rgba(4, 16, 45, 0.48);
+    }
+
+    .corner-mark::before {
+      content: "";
+      width: clamp(38px, 4.6vw, 58px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--silver-bright), rgba(21, 62, 124, 0.45));
+      box-shadow: 0 0 16px rgba(217, 226, 231, 0.34);
+    }
+
+    .corner-mark.top-left {
+      top: clamp(18px, 2vw, 28px);
+      left: clamp(18px, 2vw, 28px);
+      text-align: left;
+    }
+
+    .corner-mark.top-right {
+      top: clamp(18px, 2vw, 28px);
+      right: clamp(18px, 2vw, 28px);
+      justify-items: end;
+      text-align: right;
+    }
+
+    .corner-mark.bottom-left {
+      bottom: clamp(18px, 2vw, 28px);
+      left: clamp(18px, 2vw, 28px);
+      text-align: left;
+    }
+
+    .corner-mark.bottom-right {
+      right: clamp(18px, 2vw, 28px);
+      bottom: clamp(18px, 2vw, 28px);
+      justify-items: end;
+      text-align: right;
+    }
+
+    .corner-mark.bottom-left::before,
+    .corner-mark.bottom-right::before {
+      order: 2;
     }
 
     .mosaic > .brand-tile .fog {
@@ -498,22 +554,22 @@
     }
 
     .mosaic > .brand-tile .logo-card.transparent {
-      width: min(100%, 412px);
-      padding-inline: clamp(20px, 2.25vw, 32px);
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.26));
+      width: min(100%, 450px);
+      padding-inline: clamp(14px, 1.8vw, 26px);
+      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.34));
     }
 
     .mosaic > .brand-tile .logo-card.transparent::before {
-      inset: -42%;
+      inset: -48%;
       background:
         radial-gradient(ellipse at center,
           rgba(255, 255, 255, 1) 0%,
-          rgba(255, 255, 255, 0.9) 22%,
-          rgba(247, 250, 252, 0.52) 44%,
-          rgba(217, 226, 231, 0.12) 64%,
-          transparent 82%);
-      filter: blur(34px);
-      transform: scale(1.1);
+          rgba(255, 255, 255, 0.96) 24%,
+          rgba(247, 250, 252, 0.66) 45%,
+          rgba(217, 226, 231, 0.18) 66%,
+          transparent 84%);
+      filter: blur(32px);
+      transform: scale(1.16);
     }
 
     .logo-card img {
@@ -724,6 +780,7 @@
       <div class="mosaic">
         <article class="tile stats-tile" style="--nature-pos:left center; --nature-opacity:0.48;">
           <div class="terrain"></div><div class="cafetal"></div><div class="fog"></div>
+          <span class="corner-mark top-left">CENEXPO</span>
           <div class="tile-inner">
             <p class="kicker">Cafetero y Quindiano</p>
             <div class="stats">
@@ -744,6 +801,7 @@
 
         <article class="tile copy-tile" style="--nature-pos:right center; --nature-opacity:0.64;">
           <div class="terrain"></div><div class="cafetal"></div><div class="fog"></div>
+          <span class="corner-mark top-right">Eventos</span>
           <div class="coffee-branch" aria-hidden="true"><i class="leaf a"></i><i class="leaf b"></i><i class="leaf c"></i><span class="cherry a"></span><span class="cherry b"></span><span class="cherry c"></span><span class="cherry d"></span></div>
           <div class="tile-inner">
             <p class="kicker">Destino de eventos</p>
@@ -787,6 +845,7 @@
 
         <article class="tile copy-tile" style="--nature-pos:left bottom; --nature-opacity:0.62;">
           <div class="terrain"></div><div class="cafetal"></div><div class="fog"></div>
+          <span class="corner-mark bottom-left">Armenia</span>
           <div class="tile-inner">
             <p class="kicker">Cafe, ritmo y fiesta</p>
             <h2 class="title small">Conciertos,<br>bodas y<br>festivales.</h2>
@@ -807,6 +866,7 @@
 
         <article class="tile cta-tile" style="--nature-pos:center bottom; --nature-opacity:0.58;">
           <div class="terrain"></div><div class="cafetal"></div><div class="fog"></div>
+          <span class="corner-mark bottom-right">Quindio</span>
           <div class="tile-inner">
             <h2 class="title small">Agenda<br>tu visita.</h2>
             <div class="button">WhatsApp +57 314 261 7456</div>
